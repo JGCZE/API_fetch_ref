@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
+import useDataHook from './hooks/useData';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const { collabs, error } = useDataHook()
+  console.log(collabs, error)
 
   return (
     <>
-     test
+     
     </>
   )
 }
 
-export default App
+export default App;
