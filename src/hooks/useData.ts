@@ -3,9 +3,24 @@ import collaborations from '../api/data';
 
 const collab = collaborations
 
-const useDataHook = async () => {
-  const [collabs, setCollabs] = useState([]);
-  const [error, setError] = useState(null);
+interface ICollabs {
+  id: number;
+  collabs: {
+    id: number;
+    name: string;
+    lastName: string;
+  }
+}
+
+interface TData {
+  collabs: ICollabs[];
+  error: string | null;
+}
+
+
+const useDataHook = (): TData => {
+  const [collabs, setCollabs] = useState<ICollabs[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getCollabs = async () => {
